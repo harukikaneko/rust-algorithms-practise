@@ -1,7 +1,6 @@
 use std::time;
 
 mod algorithms {
-    pub mod index_search;
     pub mod search;
     pub mod tree_node;
 }

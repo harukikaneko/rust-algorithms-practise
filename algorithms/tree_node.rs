@@ -25,26 +25,58 @@ mod tests {
             val: 1,
             left: Some(Box::new(TreeNode {
                 val: 2,
-                left: Some(Box::new(TreeNode { val: 3, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 4, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 4,
+                    left: None,
+                    right: None,
+                })),
             })),
             right: Some(Box::new(TreeNode {
                 val: 5,
-                left: Some(Box::new(TreeNode { val: 6, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 7, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 6,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 7,
+                    left: None,
+                    right: None,
+                })),
             })),
         };
         let q = TreeNode {
             val: 1,
             left: Some(Box::new(TreeNode {
                 val: 2,
-                left: Some(Box::new(TreeNode { val: 3, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 4, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 4,
+                    left: None,
+                    right: None,
+                })),
             })),
             right: Some(Box::new(TreeNode {
                 val: 5,
-                left: Some(Box::new(TreeNode { val: 6, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 7, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 6,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 7,
+                    left: None,
+                    right: None,
+                })),
             })),
         };
         assert_eq!(binary_tree(Some(Box::new(p)), Some(Box::new(q))), true);
@@ -56,26 +88,58 @@ mod tests {
             val: 1,
             left: Some(Box::new(TreeNode {
                 val: 2,
-                left: Some(Box::new(TreeNode { val: 3, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 4, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 4,
+                    left: None,
+                    right: None,
+                })),
             })),
             right: Some(Box::new(TreeNode {
                 val: 5,
-                left: Some(Box::new(TreeNode { val: 6, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 7, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 6,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 7,
+                    left: None,
+                    right: None,
+                })),
             })),
         };
         let q = TreeNode {
             val: 1,
             left: Some(Box::new(TreeNode {
                 val: 2,
-                left: Some(Box::new(TreeNode { val: 2, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 4, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 2,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 4,
+                    left: None,
+                    right: None,
+                })),
             })),
             right: Some(Box::new(TreeNode {
                 val: 5,
-                left: Some(Box::new(TreeNode { val: 6, left: None, right: None })),
-                right: Some(Box::new(TreeNode { val: 7, left: None, right: None })),
+                left: Some(Box::new(TreeNode {
+                    val: 6,
+                    left: None,
+                    right: None,
+                })),
+                right: Some(Box::new(TreeNode {
+                    val: 7,
+                    left: None,
+                    right: None,
+                })),
             })),
         };
         assert_eq!(binary_tree(Some(Box::new(p)), Some(Box::new(q))), false);

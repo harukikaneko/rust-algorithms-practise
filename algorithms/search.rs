@@ -18,13 +18,22 @@ impl Search {
     }
 
     pub fn binary_search(self, value: &i32) -> Option<i32> {
+        if self.values.is_empty() {
+            return None;
+        }
+
         let mut low = 0;
         let mut high = self.values.len() - 1;
         while low <= high {
             let mid = (low + high) / 2;
             match self.values[mid].cmp(value) {
                 std::cmp::Ordering::Less => low = mid + 1,
-                std::cmp::Ordering::Greater => high = mid - 1,
+                std::cmp::Ordering::Greater => {
+                    if mid == 0 {
+                        break;
+                    }
+                    high = mid - 1;
+                }
                 std::cmp::Ordering::Equal => return Some(mid as i32),
             }
         }
@@ -50,5 +59,19 @@ mod tests {
         let search = Search::new(values);
         assert_eq!(search.clone().binary_search(&5), Some(4));
         assert_eq!(search.binary_search(&11), None);
+    }
+
+    #[test]
+    fn test_binary_search_case_empty() {
+        let values = vec![];
+        let search = Search::new(values);
+        assert_eq!(search.binary_search(&5), None);
+    }
+
+    #[test]
+    fn test_binary_search_for_nonexistent_element() {
+        let values = vec![1];
+        let search = Search::new(values);
+        assert_eq!(search.binary_search(&0), None);
     }
 }
