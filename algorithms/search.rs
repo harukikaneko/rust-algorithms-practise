@@ -1,19 +1,17 @@
 #[derive(Debug, Clone)]
 pub struct Search {
-    values: Vec<i32>
+    values: Vec<i32>,
 }
 
 impl Search {
     pub fn new(values: Vec<i32>) -> Self {
-        Search {
-            values
-        }
+        Search { values }
     }
 
     pub fn linear_search(self, value: &i32) -> Option<i32> {
         for (i, v) in self.values.iter().enumerate() {
             if v == value {
-                return Some(i as i32)
+                return Some(i as i32);
             }
         }
         None
@@ -38,19 +36,19 @@ impl Search {
 mod tests {
     use super::*;
 
-        #[test]
-        fn test_linear_search() {
-            let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-            let search = Search::new(values);
-            assert_eq!(search.clone().linear_search(&5), Some(4));
-            assert_eq!(search.linear_search(&11), None);
-        }
+    #[test]
+    fn test_linear_search() {
+        let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let search = Search::new(values);
+        assert_eq!(search.clone().linear_search(&5), Some(4));
+        assert_eq!(search.linear_search(&11), None);
+    }
 
-        #[test]
-        fn test_binary_search() {
-            let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-            let search = Search::new(values);
-            assert_eq!(search.clone().binary_search(&5), Some(4));
-            assert_eq!(search.binary_search(&11), None);
-        }
+    #[test]
+    fn test_binary_search() {
+        let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let search = Search::new(values);
+        assert_eq!(search.clone().binary_search(&5), Some(4));
+        assert_eq!(search.binary_search(&11), None);
+    }
 }

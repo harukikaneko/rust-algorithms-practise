@@ -1,10 +1,20 @@
+use std::time;
+
 mod algorithms {
+    pub mod index_search;
     pub mod search;
+    pub mod tree_node;
 }
 
 fn main() {
-    let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let values = (1..1000).collect::<Vec<i32>>();
     let search = algorithms::search::Search::new(values);
-    println!("{:?}", search.clone().linear_search(&5));
-    println!("{:?}", search.binary_search(&9));   
+
+    let now = time::Instant::now();
+    println!("{:?}", search.clone().linear_search(&890));
+    println!("linear{:?}", now.elapsed());
+
+    let now2 = time::Instant::now();
+    println!("{:?}", search.binary_search(&890));
+    println!("binary{:?}", now2.elapsed());
 }
