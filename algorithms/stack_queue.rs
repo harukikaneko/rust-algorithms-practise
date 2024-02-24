@@ -1,20 +1,18 @@
 #[derive(Debug, Clone)]
 pub struct Stack {
     values: Vec<usize>,
-    top: usize,
 }
 
 impl Stack {
     pub fn new() -> Self {
         Stack {
             values: [].to_vec(),
-            top: 0,
         }
     }
 
     pub fn push(&mut self, value: usize) {
-        self.values.insert(self.top, value);
-        self.top += 1;
+        let top = self.values.len();
+        self.values.insert(top, value);
     }
 
     pub fn pop(&mut self) -> Option<usize> {
@@ -24,7 +22,6 @@ impl Stack {
         let target_index = self.values.len() - 1;
         let value = self.values.get(target_index).copied();
         self.values.remove(target_index);
-        self.top = target_index;
         value
     }
 
@@ -36,35 +33,30 @@ impl Stack {
 #[derive(Debug, Clone)]
 pub struct Queue {
     values: Vec<usize>,
-    head: usize,
-    tail: usize,
 }
 
 impl Queue {
     pub fn new() -> Self {
         Queue {
             values: [].to_vec(),
-            head: 0,
-            tail: 0,
         }
     }
 
     pub fn push_front(&mut self, value: usize) {
-        self.values.insert(self.head, value);
-        self.head += 1;
+        self.values.insert(0, value);
     }
 
     pub fn push_back(&mut self, value: usize) {
-        self.values.insert(self.tail, value);
-        self.tail += 1;
+        let tail = self.values.len();
+        self.values.insert(tail, value);
     }
 
     pub fn pop_front(&mut self) -> Option<usize> {
         if self.is_empty() {
             return None;
         }
-        let value = self.values.get(self.head).copied();
-        self.values.remove(self.head);
+        let value = self.values.get(0).copied();
+        self.values.remove(0);
         value
     }
 
@@ -72,8 +64,10 @@ impl Queue {
         if self.is_empty() {
             return None;
         }
-        let value = self.values.get(self.tail).copied();
-        self.values.remove(self.tail);
+
+        let tail = self.values.len() - 1;
+        let value = self.values.get(tail).copied();
+        self.values.remove(tail);
         value
     }
 
@@ -130,13 +124,17 @@ mod tests {
     #[test]
     fn test_queue() {
         let mut queue = Queue::new();
-        queue.push_back(1);
-        queue.push_back(2);
-        queue.push_back(3);
 
+        queue.push_front(1);
+        queue.push_back(3);
+        queue.push_front(4);
+        queue.push_back(5);
+        
+        assert_eq!(queue.pop_front(), Some(4));
+        assert_eq!(queue.pop_back(), Some(5));
         assert_eq!(queue.pop_front(), Some(1));
-        assert_eq!(queue.pop_front(), Some(2));
-        assert_eq!(queue.pop_front(), Some(3));
+        assert_eq!(queue.pop_back(), Some(3));
         assert_eq!(queue.pop_front(), None);
+        assert_eq!(queue.pop_back(), None);
     }
 }
