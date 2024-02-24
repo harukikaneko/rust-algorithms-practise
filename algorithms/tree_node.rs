@@ -79,7 +79,7 @@ mod tests {
                 })),
             })),
         };
-        assert_eq!(binary_tree(Some(Box::new(p)), Some(Box::new(q))), true);
+        assert!(binary_tree(Some(Box::new(p)), Some(Box::new(q))));
     }
 
     #[test]
@@ -142,6 +142,6 @@ mod tests {
                 })),
             })),
         };
-        assert_eq!(binary_tree(Some(Box::new(p)), Some(Box::new(q))), false);
+        assert!(!binary_tree(Some(Box::new(p)), Some(Box::new(q))));
     }
 }
