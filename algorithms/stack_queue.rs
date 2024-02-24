@@ -3,7 +3,7 @@ mod tests {
     use std::collections::VecDeque;
 
     #[test]
-    fn test_simple_stack_queue() {
+    fn test_simple_lifo() {
         let mut queue = Vec::new();
         queue.push(1);
         queue.push(2);
