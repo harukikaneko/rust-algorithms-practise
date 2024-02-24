@@ -3,6 +3,7 @@ use std::time;
 mod algorithms {
     pub mod search;
     pub mod tree_node;
+    pub mod stack_queue;
 }
 
 fn main() {
